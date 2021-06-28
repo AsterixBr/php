@@ -58,8 +58,6 @@ if(isset($_POST['voto'])){
     
     }
 
-    echo ;
-
 
 ?>
 </body>
