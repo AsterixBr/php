@@ -8,12 +8,12 @@ class Conecta {
     public $db;
 
     
-    public function __construct()
+    public function _construct()
     {
         $db = $this->conectadb;
     }
     public function conectadb(){
-        return mysqli_connect($this->getUrl(), $this->getUser(),
+        $db = mysqli_connect($this->getUrl(), $this->getUser(),
         $this->getPassword(), $this->getBanco()) or die ('Erro: '.mysqli_errno($db));
         return $db;
     }
