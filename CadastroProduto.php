@@ -64,10 +64,10 @@ include_once 'Controller/ProdutoController.php';
                             $Nome = $_POST['nomeProduto'];
                             $vlrCompra = $_POST['vlrCompra'];
                             $vlrVenda = $_POST['vlrVenda'];
-                            $qtdEstoques = $_POST['qtdEstoque'];
+                            $qtdEstoques = $_POST['qtdEstoques'];
 
                             $pc = new ProdutoController();
-                            echo $pc->inserirProduto($Nome, $vlrCompra, $vlrVenda, $qtdEstoques);
+                            echo $pc->insertProduto($Nome, $vlrCompra, $vlrVenda, $qtdEstoques);
                         }
                         ?>
                         <form method="post" action="">
@@ -85,7 +85,7 @@ include_once 'Controller/ProdutoController.php';
                                            name="vlrVenda"> 
                                     <label>Qtde em Estoque</label>  
                                     <input class="form-control" type="number" 
-                                           name="qtdEstoque">
+                                           name="qtdEstoques">
                                     <input type="submit" name="cadastrarProduto"
                                            class="btn btn-success btInput" value="Enviar">
                                     &nbsp;&nbsp;

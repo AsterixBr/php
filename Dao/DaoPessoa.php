@@ -5,7 +5,7 @@
 class Generico{
     public $conn;
 
-    function inserir(Pessoa $p){
+    function insert(Pessoa $p){
     $conn = new Conecta();
     if($conn == true){
         $sql = "insert into pessoa values (null, '".$p->getNome().

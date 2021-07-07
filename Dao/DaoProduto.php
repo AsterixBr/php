@@ -4,7 +4,7 @@ include_once '../php01/BancodeDados/conecta.php';
 
 class DaoProduto {
     
-    public function inserir(Produto $produto){
+    public function insert(Produto $produto){
         $conn = new Conecta();
         if($conn->conectadb()){
             $Nome = $produto->getNome();
@@ -17,7 +17,7 @@ class DaoProduto {
                 return  "<p style='color: green;'>"
                         . "Dados Cadastrados com sucesso</p>";
             }else{
-                return "<p style='color: red;'>Erro na inserção dos dados.</p>";
+                return "<p style='color: red;'>Erro na ,inserção dos dados.</p>";
             }
         }else{
             return "<p style='color: red;'>"
