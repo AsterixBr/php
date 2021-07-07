@@ -1,7 +1,11 @@
 <?
-include_once '../php01/generico.php';
+include_once '../php01/Dao/DaoPessoa.php';
+include_once '../php01/model/Pessoa.php';
+
 class Pessocontroller{
+
     public function insertPessoa($nome, $dtNasc, $login, $senha, $perfil, $email, $cpf){
+        
         $pessoa = new Pessoa();
         $pessoa->setNome($nome);
         $pessoa->setDtNasc($dtNasc);

@@ -1,6 +1,6 @@
 <?php
- include_once ('../php01/conecta.php');
- include_once ('../php01/Pessoa.php');
+ include_once ('../php01/BancodeDados/conecta.php');
+ include_once ('../php01/model/Pessoa.php');
 
 class Generico{
     public $conn;
