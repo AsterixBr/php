@@ -1,5 +1,6 @@
 <?php
 include_once '../php01/BancodeDados/conecta.php';
+include_once 'Controller/ProdutoController.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -127,7 +128,7 @@ include_once '../php01/BancodeDados/conecta.php';
                                     <button type="button" 
                                             class="btn btn-light" data-toggle="modal" 
                                             data-target=".modal_a<?php echo $a; ?>">
-                                        <img src="img/delete.png" width="32"></button></td>
+                                        <img src="img/delete.png"></button></td>
                             </tr>
                             <!-- janela modal Confirm. de Leitura -->
             <div class="modal fade modal_a<?php echo $a;?>" role="dialog" tabindex="-1" aria-hidden="true">

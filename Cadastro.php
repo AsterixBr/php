@@ -104,7 +104,7 @@
       $cpf = $_POST['cpf'];
       $email = $_POST['email'];
 
-      $pc = new Pessocontroller();
+      $pc = new Pessoacontroller();
       $pc->insertPessoa($nome, $dtNasc, $login, $senha, $perfil, $email, $cpf);
     }
   ?>

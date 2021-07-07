@@ -2,7 +2,7 @@
 include_once '../php01/Dao/DaoPessoa.php';
 include_once '../php01/model/Pessoa.php';
 
-class Pessocontroller{
+class PessoaController{
 
     public function insertPessoa($nome, $dtNasc, $login, $senha, $perfil, $email, $cpf){
         
