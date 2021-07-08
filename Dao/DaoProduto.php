@@ -7,30 +7,33 @@ class DaoProduto {
     public function insert(Produto $produto){
         $conn = new Conecta();
         if($conn->conectadb()){
-            $Nome = $produto->getNome();
-            $VlrCompra = $produto->getVlrCompra();
-            $VlrVenda = $produto->getVlrVenda();
-            $qtdEstoque = $produto->getqtdEstoques();
-
-            $sql = "insert into produtos values (null, '$Nome','$VlrCompra', '$VlrVenda', '$qtdEstoque')";
-            if(mysqli_query($conn->conectadb(), $sql)){
-                return  "<p style='color: green;'>"
+            $nomeProduto = $produto->getNome();
+            $vlrCompra = $produto->getVlrCompra();
+            $vlrVenda = $produto->getVlrVenda();
+            $qtdEstoque = $produto->getQtdEstoques();
+            $sql = "insert into Itens values (null, '$nomeProduto',"
+                    . "'$vlrCompra', '$vlrVenda', '$qtdEstoque')";
+            $resp = mysqli_query($conn->conectadb(), $sql) or 
+                    die($conn->conectadb());
+            if($resp){
+                $msg = "<p style='color: green;'>"
                         . "Dados Cadastrados com sucesso</p>";
             }else{
-                return "<p style='color: red;'>Erro na ,inserção dos dados.</p>";
+                $msg = $resp;
             }
         }else{
-            return "<p style='color: red;'>"
+            $msg = "<p style='color: red;'>"
                         . "Erro na conexão com o banco de dados.</p>";
         }
         mysqli_close($conn->conectadb());
-        return "Erro.";
+        return $msg;
     }
+    
     //método para carregar lista de produtos do banco de dados
     public function listarProdutosDAO(){
         $conn = new Conecta();
         if($conn->conectadb()){
-            $sql = "select * from produtos";
+            $sql = "select * from Itens";
             $query = mysqli_query($conn->conectadb(), $sql);
             $result = mysqli_fetch_array($query);
             $lista = array();
@@ -39,10 +42,10 @@ class DaoProduto {
                 do {
                     $produto = new Produto();
                     $produto->setId($result['id']);
-                    $produto->setNome($result['nome']);
-                    $produto->setVlrCompra($result['vlrCompra']);
-                    $produto->setVlrVenda($result['vlrVenda']);
-                    $produto->setQtdEstoques($result['qtdEstoque']);
+                    $produto->setNome($result['Nome']);
+                    $produto->setVlrCompra($result['Valorcompra']);
+                    $produto->setVlrVenda($result['Valorvenda']);
+                    $produto->setQtdEstoques($result['QntdEstoques']);
                     $lista[$a] = $produto;
                     $a++;
                 } while ($result = mysqli_fetch_array($query));
@@ -51,6 +54,19 @@ class DaoProduto {
             return $lista;
         }
     }
+    public function excluirProdutoDAO($id) {
+        $conn = new conecta();
+        $conecta = $conn->conectadb();
+        if($conecta){
+            $sql = "delete from itens where id = '$id'";
+            mysqli_query($conecta, $sql);
+            header("Location:../php01/CadastroProduto.php");
+            mysqli_close($conecta);
+            exit;
+        }else{
+            echo"<script>alert('Banco inoperante!')</script>";
+            header("Location:../CadastroProduto.php");
+        }
+    }
 }
-
 ?>

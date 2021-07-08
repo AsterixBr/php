@@ -128,7 +128,7 @@ include_once 'Controller/ProdutoController.php';
                                     <button type="button" 
                                             class="btn btn-light" data-toggle="modal" 
                                             data-target=".modal_a<?php echo $a; ?>">
-                                        <img src="img/delete.png"></button></td>
+                                        <img src="img/delete.png" width="32"></button></td>
                             </tr>
                             <!-- janela modal Confirm. de Leitura -->
             <div class="modal fade modal_a<?php echo $a;?>" role="dialog" tabindex="-1" aria-hidden="true">

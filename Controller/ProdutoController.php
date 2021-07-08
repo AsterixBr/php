@@ -12,7 +12,6 @@ class ProdutoController {
         $produto->setVlrVenda($vlrVenda);
         $produto->setQtdEstoques($qtdEstoque);
         
-        echo $nomeProduto, $vlrCompra, $vlrVenda, $qtdEstoque;
         
         $daoProduto = new DaoProduto();
         return $daoProduto->insert($produto);
@@ -23,5 +22,10 @@ class ProdutoController {
         $daoProduto = new DaoProduto();
         return $daoProduto->listarProdutosDAO();
     }
+    public function excluirProduto($id){
+        $daoProduto = new DaoProduto();
+        $daoProduto->excluirProdutoDAO($id);
+    }
 }
+
 ?>

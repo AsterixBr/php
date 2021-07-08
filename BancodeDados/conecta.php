@@ -4,7 +4,7 @@ class Conecta {
     private  $url = "localhost:3306";
     private  $user = "root";
     private  $password = "senac";
-    private $banco = "estoque";
+    private $banco = "Produtos";
     public $db;
 
     

@@ -16,6 +16,6 @@ class PessoaController{
         $pessoa->setCpf($cpf);
 
         $Generico = new Generico();
-        return $Generico->inserir($pessoa);
+        return $Generico->insert($pessoa);
     }
 }
