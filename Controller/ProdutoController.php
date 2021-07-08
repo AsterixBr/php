@@ -26,6 +26,14 @@ class ProdutoController {
         $daoProduto = new DaoProduto();
         $daoProduto->excluirProdutoDAO($id);
     }
+        public function pesquisarProdutoId($id){
+            $daoProduto = new DaoProduto();
+            return $daoProduto->editarProdutoDAO($id);
+        }
+    public function editarProduto($id){
+        $daoProduto = new DaoProduto();
+        $daoProduto->editarProdutoDAO($id);
+    }
 }
 
 ?>

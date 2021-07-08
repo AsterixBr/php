@@ -1,5 +1,5 @@
 <?php
-include_once '../php01/BancodeDados/conecta.php';
+include_once '../php01/model/produto.php';
 include_once 'Controller/ProdutoController.php';
 ?>
 <!DOCTYPE html>
@@ -123,7 +123,7 @@ include_once 'Controller/ProdutoController.php';
                                 <td><?php print_r($lp->getVlrVenda()); ?></td>
                                 <td><?php print_r($lp->getqtdEstoques()); ?></td>
                                 <td><a class="btn btn-light" 
-                                       href="#?id=<?php echo $lp->getId(); ?>">
+                                       href="editaProduto.php?id=<?php echo $lp->getId(); ?>">
                                         <img src="img/edita.png" width="32"></a>
                                     <button type="button" 
                                             class="btn btn-light" data-toggle="modal" 
@@ -131,7 +131,7 @@ include_once 'Controller/ProdutoController.php';
                                         <img src="img/delete.png" width="32"></button></td>
                             </tr>
                             <!-- janela modal Confirm. de Leitura -->
-            <div class="modal fade modal_a<?php echo $a;?>" role="dialog" tabindex="-1" aria-hidden="true">
+            <div class="modal fade" id="exampleModal<?php echo $a;?>" role="dialog" tabindex="-1" aria-hidden="true">
             	<div class="modal-dialog">
                 	<div class="modal-content">
                     	<div class="modal-header">

@@ -54,19 +54,30 @@ class DaoProduto {
             return $lista;
         }
     }
-    public function excluirProdutoDAO($id) {
+    public function pesquisarProdutoId($id) {
         $conn = new conecta();
         $conecta = $conn->conectadb();
         if($conecta){
-            $sql = "delete from itens where id = '$id'";
-            mysqli_query($conecta, $sql);
-            header("Location:../php01/CadastroProduto.php");
+            $sql = "delete from Itens where id = '$id'";
+            $result = mysqli_query($conecta, $sql);
+            $linha = mysqli_fetch_assoc($result);
+            if($linha) {
+                do{
+                    $produto = new Produto();
+                    $produto->setId($result['id']);
+                    $produto->setNome($result['Nome']);
+                    $produto->setVlrCompra($result['Valorcompra']);
+                    $produto->setVlrVenda($result['Valorvenda']);
+                    $produto->setQtdEstoques($result['QntdEstoques']);
+                } while  ($linha = mysqli_fetch_assoc($result));
+            }
             mysqli_close($conecta);
-            exit;
         }else{
             echo"<script>alert('Banco inoperante!')</script>";
-            header("Location:../CadastroProduto.php");
+            echo"<META HTTP-EQUIV='REFRESH' CONTENT=\"0;
+            URL='../php01/CadastroProduto.php'\">"; 
         }
+        return $produto;
     }
 }
 ?>
